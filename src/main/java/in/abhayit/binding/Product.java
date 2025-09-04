@@ -1,10 +1,19 @@
 package in.abhayit.binding;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Product {
 
+	@NotNull(message = "Id IS required")
 	private Integer pid;
+	//@NotNull//not working
+	@Size(min = 3,max = 8)
 	private String pname;
-	private String price;
+	@NotNull(message = "Price IS required")
+	private Integer price;
+	
+	
 	public Integer getPid() {
 		return pid;
 	}
@@ -17,10 +26,10 @@ public class Product {
 	public void setPname(String pname) {
 		this.pname = pname;
 	}
-	public String getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	@Override
